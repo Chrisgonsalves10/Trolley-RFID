@@ -32,11 +32,22 @@ app.post("/", async (req, res) => {
     if (err) return console.log("Error in reading from db");
     let body = req.body;
     let valuesArr = JSON.parse(jsonString);
+    let img = "";
+    if (body.itemname == "Item 1") {
+      img = "https://m.media-amazon.com/images/I/51Bp30CR3IL._AC_UL640_QL65_.jpg";
+    } else if (body.itemname == "Item 2") {
+      img = "https://m.media-amazon.com/images/I/91KZBHX-d-L._AC_UY436_QL65_.jpg";
+    } else {
+      img = "https://m.media-amazon.com/images/I/71DpoMAG6pL._AC_UL640_QL65_.jpg";
+    }
+
     let obj = {
       price: body.price,
       itemname: body.itemname,
+      imgLink: img,
       timestamp: new Date(),
     };
+
     valuesArr.push(obj);
     console.log(obj);
     fs.writeFile(DB_PATH, JSON.stringify(valuesArr), (err) => {
