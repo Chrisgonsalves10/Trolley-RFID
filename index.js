@@ -1,9 +1,10 @@
 const express = require("express");
 const app = express();
+const path = require("path");
 const fs = require("fs");
 
 // constants
-const DB_PATH = "https://api.jsonbin.io/v3/b/63479f600e6a79321e26bb2b?meta=false";
+const DB_PATH = path.resolve("db.json");
 const PORT = process.env.PORT || 8000;
 
 // middlewares
@@ -30,7 +31,6 @@ app.post("/", async (req, res) => {
       price: body.price,
       itemname: body.itemname,
       timestamp: new Date(),
-      imgLink: body.imgLink
     };
     valuesArr.push(obj);
     console.log(obj);
