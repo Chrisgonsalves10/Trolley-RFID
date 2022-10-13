@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const fs = require("fs");
+const cors = require("cors");
 
 // constants
 const DB_PATH = path.resolve("db.json");
@@ -9,7 +10,11 @@ const PORT = process.env.PORT || 8000;
 
 // middlewares
 app.use(express.json());
-
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "http://127.0.0.1:5173"],
+  })
+);
 // routes
 app.get("/", async (req, res) => {
   fs.readFile(DB_PATH, "utf-8", (err, jsonString) => {

@@ -1,23 +1,29 @@
 <script>
   import TailwindCss from "./TailwindCSS.svelte";
-  async function getUsers() {
-    let response = await fetch("https://api.jsonbin.io/v3/b/63479f600e6a79321e26bb2b?meta=false");
-    let items = await response.json();
-    return items;
-  }
-  const promise = getUsers();
+  import { onMount } from "svelte";
+  import axios from "axios";
+
+  const endpoint = "http://localhost:8000";
+  var itemsRes = [];
+  var myLen = 0;
+  var items = [];
+
+  onMount(async function () {
+    const response = await axios.get(endpoint);
+    console.log(response.data);
+    itemsRes = response.data;
+    myLen = response.data.totalValues;
+    items = itemsRes.values;
+  });
 </script>
 
 <TailwindCss />
 <div>
-  {#await promise}
-    <p>Loading...</p>
-  {:then items}
+  {#if myLen === 0}
+    Cart Empty
+  {:else}
     {#each items as item}
       <p>Price is {item.price}, ItemName: {item.itemname}</p>
     {/each}
-  {:catch error}
-    <p style="color: red">{error.message}</p>
-  {/await}
+  {/if}
 </div>
-
