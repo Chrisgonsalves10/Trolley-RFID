@@ -4,7 +4,8 @@ const path = require("path");
 const fs = require("fs");
 
 // constants
-const DB_PATH = "https://api.jsonbin.io/v3/b/63479f600e6a79321e26bb2b?meta=false";
+// const DB_PATH = "https://api.jsonbin.io/v3/b/63479f600e6a79321e26bb2b?meta=false";
+const DB_PATH = path.resolve("db.json");
 const PORT = process.env.PORT || 8000;
 
 // middlewares
@@ -27,12 +28,24 @@ app.post("/", async (req, res) => {
     if (err) return console.log("Error in reading from db");
     let body = req.body;
     let valuesArr = JSON.parse(jsonString);
+    let img = ""
+    if(body.itemname == "Item 1") {
+       img = "https://m.media-amazon.com/images/I/51Bp30CR3IL._AC_UL640_QL65_.jpg";
+    }
+    else if(body.itemname == "Item 2") {
+      img = "https://m.media-amazon.com/images/I/91KZBHX-d-L._AC_UY436_QL65_.jpg";
+    }
+    else {
+      img = "https://m.media-amazon.com/images/I/71DpoMAG6pL._AC_UL640_QL65_.jpg";
+    }
+
     let obj = {
       price: body.price,
       itemname: body.itemname,
-      timestamp: new Date(),
-      imgLink: body.imgLink
+      imgLink: img,
+      timestamp: new Date()
     };
+
     valuesArr.push(obj);
     console.log(obj);
     fs.writeFile(DB_PATH, JSON.stringify(valuesArr), (err) => {
