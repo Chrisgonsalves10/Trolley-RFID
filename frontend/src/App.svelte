@@ -1,4 +1,6 @@
 <script>
+  // @ts-nocheck
+
   import TailwindCss from "./TailwindCSS.svelte";
   import { onMount } from "svelte";
   import axios from "axios";
@@ -77,6 +79,7 @@
               </div>
             </div>
             <div class="flex justify-center w-1/5">
+              <!-- svelte-ignore a11y-click-events-have-key-events -->
               <div on:click={removeFromCart(item.id)}>
                 <img
                   class="fill-current text-gray-600 w-8"
@@ -86,6 +89,7 @@
 
               <input class="mx-2 border text-center w-8" type="text" value={item.quantity} />
 
+              <!-- svelte-ignore a11y-click-events-have-key-events -->
               <svg
                 on:click={incrementQuantity(item.id)}
                 class="fill-current text-gray-600 w-3"
