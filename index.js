@@ -33,9 +33,9 @@ app.post("/", async (req, res) => {
     let body = req.body;
     let valuesArr = JSON.parse(jsonString);
     let img = "";
-    if (body.itemname == "Item 1") {
+    if (body.itemname == "Redbull") {
       img = "https://m.media-amazon.com/images/I/51Bp30CR3IL._AC_UL640_QL65_.jpg";
-    } else if (body.itemname == "Item 2") {
+    } else if (body.itemname == "Kellogs Cornflake") {
       img = "https://m.media-amazon.com/images/I/91KZBHX-d-L._AC_UY436_QL65_.jpg";
     } else {
       img = "https://m.media-amazon.com/images/I/71DpoMAG6pL._AC_UL640_QL65_.jpg";
