@@ -3,11 +3,11 @@
   import { onMount } from "svelte";
   import axios from "axios";
 
+  let show = true;
   let selected = "Standard shipping - ₹50.00";
   let shippingOptions = ["Standard shipping - ₹50.00", "Pick Up - ₹0.00"];
   const endpoint = "http://localhost:8000";
   var itemsRes = [];
-  var myLen = 0;
   var items = [];
 
   $: incrementQuantity = (n) => {
@@ -15,13 +15,22 @@
   };
   onMount(async function () {
     const response = await axios.get(endpoint);
-    console.log(response.data);
+    // console.log(response.data);
     itemsRes = response.data;
-    myLen = response.data.totalValues;
     items = itemsRes.values;
   });
 
   $: total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  $: removeFromCart = (id) => {
+    const objWithIdIndex = items.findIndex((obj) => {
+      obj.id === id;
+    });
+    console.log("Removing " + objWithIdIndex);
+    items.splice(objWithIdIndex, 1);
+    console.log(items);
+    items = items;
+    return;
+  };
 </script>
 
 <TailwindCss />
@@ -31,10 +40,10 @@
     <div class="w-3/4 bg-white px-10 py-10">
       <div class="flex justify-between border-b pb-8">
         <h1 class="font-semibold text-2xl">Shopping Cart</h1>
-        <h2 class="font-semibold text-2xl">{myLen} Items</h2>
+        <h2 class="font-semibold text-2xl">{items.length} Items</h2>
       </div>
 
-      {#if myLen == 0}
+      {#if items.length == 0}
         <div class="flex items-center my-40">
           <div class="mx-auto">
             <img
@@ -68,10 +77,12 @@
               </div>
             </div>
             <div class="flex justify-center w-1/5">
-              <img
-                class="fill-current text-gray-600 w-8"
-                src="https://i.ibb.co/gR40BH0/icons8-remove-48.png"
-                alt="icons8-remove-48" />
+              <div on:click={removeFromCart(item.id)}>
+                <img
+                  class="fill-current text-gray-600 w-8"
+                  src="https://i.ibb.co/gR40BH0/icons8-remove-48.png"
+                  alt="icons8-remove-48" />
+              </div>
 
               <input class="mx-2 border text-center w-8" type="text" value={item.quantity} />
 
@@ -101,7 +112,7 @@
     <div id="summary" class="w-1/4 px-8 py-10">
       <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
       <div class="flex justify-between mt-10 mb-5">
-        <span class="font-semibold text-sm uppercase">Items - {myLen}</span>
+        <span class="font-semibold text-sm uppercase">Items - {items.length}</span>
         <span class="font-semibold text-sm">₹{total}</span>
       </div>
       <div>
