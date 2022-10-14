@@ -1,26 +1,30 @@
 [
     {
-        "id": 0,
-        "price": 10,
-        "itemname": "Item 1",
-        "imgLink": "https://m.media-amazon.com/images/I/51Bp30CR3IL._AC_UL640_QL65_.jpg",
-        "timestamp": "2022-10-13T16:57:40.521Z",
-        "quantity": 1
-    },
-    {
-        "id": 1,
-        "price": 20,
-        "itemname": "Item 2",
-        "imgLink": "https://m.media-amazon.com/images/I/91KZBHX-d-L._AC_UY436_QL65_.jpg",
-        "timestamp": "2022-10-13T16:58:12.918Z",
-        "quantity": 1
-    },
-    {
-        "id": 2,
-        "price": 30,
-        "itemname": "Item 3",
+        "price": 100,
+        "itemname": "RedBull",
         "imgLink": "https://m.media-amazon.com/images/I/71DpoMAG6pL._AC_UL640_QL65_.jpg",
-        "timestamp": "2022-10-13T16:58:20.163Z",
+        "timestamp": "2022-10-14T04:05:13.269Z",
+        "quantity": 1
+    },
+    {
+        "price": 50,
+        "itemname": "Kellogs Cornflakes",
+        "imgLink": "https://m.media-amazon.com/images/I/71DpoMAG6pL._AC_UL640_QL65_.jpg",
+        "timestamp": "2022-10-14T04:05:22.951Z",
+        "quantity": 1
+    },
+    {
+        "price": 30,
+        "itemname": "Nestle Coffee",
+        "imgLink": "https://m.media-amazon.com/images/I/71DpoMAG6pL._AC_UL640_QL65_.jpg",
+        "timestamp": "2022-10-14T04:05:27.756Z",
+        "quantity": 1
+    },
+    {
+        "price": 50,
+        "itemname": "Kellogs Cornflakes",
+        "imgLink": "https://m.media-amazon.com/images/I/71DpoMAG6pL._AC_UL640_QL65_.jpg",
+        "timestamp": "2022-10-14T04:07:55.132Z",
         "quantity": 1
     }
 ]
