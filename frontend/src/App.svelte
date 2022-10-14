@@ -63,8 +63,8 @@
               <div class="w-20">
                 <img class="h-24" src={item.imgLink} alt="Foto" />
               </div>
-              <div class="flex flex-col justify-between ml-4 flex-grow">
-                <span class="font-bold text-sm text-teal-700">{item.itemname}</span>
+              <div class="flex flex-col justify-center ml-4 flex-grow">
+                <span class="font-bold text-lg text-teal-700">{item.itemname}</span>
               </div>
             </div>
             <div class="flex justify-center w-1/5">

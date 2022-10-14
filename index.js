@@ -46,6 +46,7 @@ app.post("/", async (req, res) => {
       itemname: body.itemname,
       imgLink: img,
       timestamp: new Date(),
+      quantity: 1,
     };
 
     valuesArr.push(obj);
