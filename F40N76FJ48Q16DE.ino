@@ -77,8 +77,8 @@ void loop() {
     Serial.println("Price : $10");
 
     JsonObject& values = jsonBuffer.createObject();
-    values["itemname"] = "Item 1";
-    values["price"] = 10;
+    values["itemname"] = "Apples";
+    values["price"] = 100;
 
     http.begin(client, server_url);
     http.addHeader("Content-Type", "application/json");
@@ -112,8 +112,8 @@ void loop() {
     Serial.println("Price : $20");
 
     JsonObject& values = jsonBuffer.createObject();
-    values["itemname"] = "Item 2";
-    values["price"] = 20;
+    values["itemname"] = "Oranges";
+    values["price"] = 80;
 
     http.begin(client, server_url);
     http.addHeader("Content-Type", "application/json");
@@ -148,8 +148,8 @@ void loop() {
     Serial.println("Price : $30");
 
     JsonObject& values = jsonBuffer.createObject();
-    values["itemname"] = "Item 3";
-    values["price"] = 30;
+    values["itemname"] = "Banana";
+    values["price"] = 50;
 
     http.begin(client, server_url);
     http.addHeader("Content-Type", "application/json");
