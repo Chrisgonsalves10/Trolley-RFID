@@ -74,7 +74,7 @@ void loop() {
   if (content.substring(1) == "39 3D 9E B8")  //change UID of the card that you want to give access
   {
     Serial.println("Apples Added!");
-    Serial.println("Price : $100");
+    Serial.println("Price : ₹100");
 
     JsonObject& values = jsonBuffer.createObject();
     values["itemname"] = "Apples";
@@ -109,7 +109,7 @@ void loop() {
   else if (content.substring(1) == "87 04 D5 60")  //change UID of the card that you want to give access
   {
     Serial.println(" Oranges Added!");
-    Serial.println("Price : $80");
+    Serial.println("Price : ₹80");
 
     JsonObject& values = jsonBuffer.createObject();
     values["itemname"] = "Oranges";
@@ -145,7 +145,7 @@ void loop() {
   else if (content.substring(1) == "05 D0 7F 22")  //change UID of the card that you want to give access
   {
     Serial.println("Banana Added!");
-    Serial.println("Price : $50");
+    Serial.println("Price : ₹50");
 
     JsonObject& values = jsonBuffer.createObject();
     values["itemname"] = "Banana";
