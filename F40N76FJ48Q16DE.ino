@@ -9,8 +9,8 @@
 #define RST_PIN 5  //D1
 
 // WiFi Credentials 
-const char* ssid = "thor";           
-const char* password = "12345678";  
+const char* ssid = ""; // thor           
+const char* password = ""; // 12345678 
 const char* server_url = "http://192.168.137.249:8000";
 
 // StaticJsonBuffer<200> jsonBuffer; 
